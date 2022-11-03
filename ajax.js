@@ -20,7 +20,7 @@ $(document).ready(function() {
             
             
             /********************************************** En este ajax hago la maquetacion de mi tabla  ******************************************************/
-            
+            url3 = base_url + "Inicio/desgloseCoach";
              $.ajax({
                         type: "POST",
                         url: url3,
