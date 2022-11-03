@@ -17,6 +17,37 @@ $(document).ready(function() {
         }).then(function(isConfirm) {
             var date1 = $('#Date1').val();
             var date2 = $('#Date2').val();
+            
+            
+            /********************************************** En este ajax hago la maquetacion de mi tabla  ******************************************************/
+            
+             $.ajax({
+                        type: "POST",
+                        url: url3,
+                        dataType: "json",
+                        data: { 'date1': date1, 'date2': date2 },
+                        success: function(dataCoach) {
+                            $("#table").empty();
+
+                            dataCoach.forEach(coach => {
+                                var tablacoach = "<tr>" +
+
+                                    "<td>" + coach.nombre + "</td>" +
+                                    "<td>" + coach.pago + "</td>" +
+                                    "<td>" + coach.dato1 + "</td>" +
+                                    "<td>" + coach.base + "</td>" +
+                                    "<td>" + coach.total + "</td>" +
+                                    "<td>" + coach.asistencia + "</td>" +
+                                    "<td>" + coach.factor + "%" + "</td>" +
+                                    "<td>" + coach.conexion + "</td>" +
+                                    "<td>" + coach.horas + "%" + "</td>" +
+                                    "<td>" + coach.porcentaje + "</td>" +
+                                    "</tr>";
+
+                                $("#table").append(tablacoach);
+
+                            }); 
+                            
             /************************quiero obtner este ajax para descargar el excel **************************** */
             urlexcel = base_url + "Inicio/generarCSV";
             $.ajax({
