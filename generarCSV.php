@@ -31,7 +31,6 @@ public function generarCSV(){
 		$activeSheet->setCellValue('J', 'porcentaje');
 
 		
-		//echo json_encode($reporteCoach);
 		foreach ($reporteCoach as $indice => $reporte) {
 			//var_dump($indice); 
 			
